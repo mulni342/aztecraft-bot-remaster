@@ -1,0 +1,9 @@
+{
+    "prefix": "a!",
+    "channels": {
+        "logs": null,
+        "suggestions": null,
+        "sells": null,
+        "confessions": null
+    }
+}
