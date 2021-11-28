@@ -1,4 +1,4 @@
-import * as discord from "discord.js"
+import * as discord from 'discord.js';
 
 export interface Event {
     name: keyof discord.ClientEvents,

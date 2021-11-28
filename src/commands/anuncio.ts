@@ -1,14 +1,14 @@
-import * as Discord from "discord.js"
-import { Command } from "../types"
+import * as Discord from 'discord.js';
+import { Command } from '../types';
 
-let command: Command = {
+const command: Command = {
     name: 'anuncio',
     run: (message, client, args) =>
     {
-        let server = message.guild
-        let asup = (m: any) => m.author.id === message.author.id
-        let perm = message.member?.permissions.has('ADMINISTRATOR')
-        if (!perm) return message.channel.send('❎**| ¡Permisos insuficientes para ejecutar este comando!.**')
+        const server = message.guild;
+        const asup = (m: any) => m.author.id === message.author.id;
+        const perm = message.member?.permissions.has('ADMINISTRATOR');
+        if (!perm) return message.channel.send('❎**| ¡Permisos insuficientes para ejecutar este comando!.**');
         message.channel.send({
             embeds: [
                 {
@@ -26,17 +26,17 @@ let command: Command = {
             }).then(msg =>
             {
                 if (!msg) return;
-                let fmsg = msg.first();
+                const fmsg = msg.first();
                 if (!fmsg) return;
 
-                let room = message.guild?.channels.cache.get(fmsg.content.replace('<#', '').replace('>', ''))
+                const room = message.guild?.channels.cache.get(fmsg.content.replace('<#', '').replace('>', ''));
                 if (!room) return message.channel.send({
                     embeds: [
                         {
                             title: 'El canal mencionado no se a podido encontrar.'
                         }
                     ]
-                })
+                });
                 message.channel.send({
                     embeds: [
                         {
@@ -53,7 +53,7 @@ let command: Command = {
                     }).then(msg =>
                     {
 
-                        let title = msg.first()?.content
+                        const title = msg.first()?.content;
                         message.channel.send({
                             embeds: [
                                 {
@@ -70,7 +70,7 @@ let command: Command = {
                             }).then(msg =>
                             {
 
-                                let descri = msg.first()?.content
+                                const descri = msg.first()?.content;
                                 if (!title || !descri) return;
 
                                 if ((title.length + descri.length) > 2048) return message.channel.send({
@@ -79,7 +79,7 @@ let command: Command = {
                                             title: 'El titulo y la descripción no pueden exeder los 2049 caracteres'
                                         }
                                     ]
-                                })
+                                });
                                 if (room?.isText())
 
                                     room?.send({
@@ -89,12 +89,12 @@ let command: Command = {
                                                 color: 'YELLOW'
                                             }
                                         ]
-                                    })
-                            })
-                        })
-                    })
-                })
-            })
+                                    });
+                            });
+                        });
+                    });
+                });
+            });
         }).catch(err => message.channel.send({
             embeds: [
                 {
@@ -102,9 +102,9 @@ let command: Command = {
                     description: `|| ${err} ||`
                 }
             ]
-        }))
+        }));
 
     }
-}
+};
 
 export = command;

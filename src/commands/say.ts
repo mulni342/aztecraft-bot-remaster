@@ -1,15 +1,15 @@
-import * as Discord from "discord.js"
-import { Command } from "../types"
+import * as Discord from 'discord.js';
+import { Command } from '../types';
 
-let command: Command = {
+const command: Command = {
     name: 'say',
     run: (message, client, args) => {
-        let texto=args.slice(0).join(' ')
+        const texto=args.slice(0).join(' ');
         
-        message.channel.send(texto)
+        message.channel.send(texto);
     
-        message.delete()
+        message.delete();
     }
-}
+};
 
 export = command;

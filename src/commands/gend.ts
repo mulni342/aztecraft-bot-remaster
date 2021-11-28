@@ -1,13 +1,13 @@
-import * as Discord from "discord.js"
-import { Command } from "../types"
+import * as Discord from 'discord.js';
+import { Command } from '../types';
 
-let command: Command = {
+const command: Command = {
     name: 'gend',
     run: (message, client, args) =>
     {
         const ms = require('ms');
 
-        if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === "Giveaways"))
+        if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === 'Giveaways'))
         {
             return message.channel.send('❎**| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
         }
@@ -18,7 +18,7 @@ let command: Command = {
         }
 
 
-        let giveaway =
+        const giveaway =
 
             (client as any).giveawaysManager.giveaways.find((g: any) => g.prize === args.join(' ')) ||
 
@@ -51,6 +51,6 @@ let command: Command = {
                 }
             });
     }
-}
+};
 
 export = command;

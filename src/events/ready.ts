@@ -1,25 +1,25 @@
-import { Event } from "../types"
+import { Event } from '../types';
 
-let event: Event = {
+const event: Event = {
     name: 'ready',
     run: (client) =>
     {
-        console.log("¡Hola PecaBot esta listo para ti!");
+        console.log('¡Hola PecaBot esta listo para ti!');
         function dany()
         {
-            let elementos = [`PecaBot | ${process.env.prefix}help`, `play.aztecraft.com`]
+            const elementos = [`PecaBot | ${process.env.prefix}help`, 'play.aztecraft.com'];
 
             client.user?.setPresence({
-                "activities": [{
+                'activities': [{
                     'name': elementos[Math.floor(elementos.length * Math.random())],
                     'type': 'WATCHING'
                 }],
-                "status": "online"
-            })
+                'status': 'online'
+            });
 
         }
-        setInterval(dany, 6000)
+        setInterval(dany, 6000);
     }
-}
+};
 
 export = event;
