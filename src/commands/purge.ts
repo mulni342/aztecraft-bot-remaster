@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
 const command: Command = {
     name: 'purge',
-    run: (message, client, args) =>
+    run: (message, _client, args) =>
     {
         const cantidad = parseInt(args[0]);
 

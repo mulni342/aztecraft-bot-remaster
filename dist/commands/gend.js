@@ -3,7 +3,6 @@ const command = {
     name: 'gend',
     run: (message, client, args) => {
         var _a, _b;
-        const ms = require('ms');
         if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('MANAGE_MESSAGES')) && !((_b = message.member) === null || _b === void 0 ? void 0 : _b.roles.cache.some((r) => r.name === 'Giveaways'))) {
             return message.channel.send('❎**| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
         }

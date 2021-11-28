@@ -1,11 +1,11 @@
-import { GiveawaysManager } from 'discord-giveaways';
-import * as Discord from 'discord.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Command } from '../types';
 
 const command: Command = {
     name: 'gstart',
     run: (message, client, args) =>
     {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const ms = require('ms');
 
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === 'Giveaways'))
@@ -71,7 +71,8 @@ const command: Command = {
                     pluralS: false
                 }
             }
-        }).catch((e: any) => { });
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        }).catch(() => { });
 
         message.channel.send(`El sorteo ha sido iniciado en ${giveawayChannel}!`);
 

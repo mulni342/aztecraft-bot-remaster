@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -49,7 +50,7 @@ const command: Command = {
                 .addField('Razón de la expulsión:', razon);
 
             user.send({ embeds: [embed2] })
-                .catch(e => { });
+                .catch(() => { });
 
             const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL())

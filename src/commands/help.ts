@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -6,17 +8,10 @@ const command: Command = {
     run: (message, client, args) =>
     {
 
-<<<<<<< HEAD
-        const avatarURL = client.user?.displayAvatarURL();
+        const avatarURL: string | undefined = client.user?.displayAvatarURL();
         const config = require('../../config.json');
-        const community_basic = config.basic_infos.community || message.basic;
-        const logo_basic = config.basic_infos.logo || message.basic;
-=======
-        let avatarURL = client.user?.displayAvatarURL();
-        let config = require("../../config.json");
-        let community_basic = config.basic_infos.community;
-        let logo_basic = config.basic_infos.logo;
->>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
+        const community_basic = config.basic_infos.community;
+        const logo_basic = config.basic_infos.logo;
 
         if (!avatarURL) return;
 

@@ -24,7 +24,7 @@ const command = {
     run: (message, client, args) => {
         const config = require('../../config.json');
         const sells_channel = config.channels.sells || message.channelId;
-        const logo_basic = config.basic_infos.logo || message.basic;
+        const logo_basic = config.basic_infos.logo;
         const algo = args.slice(0).join(' ').split('|');
         if (!algo[0])
             return message.channel.send('❎ **| Debes proporcionar tu nick del juego.**');

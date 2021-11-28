@@ -1,4 +1,4 @@
-import * as Discord from 'discord.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Command } from '../types';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -13,6 +13,7 @@ const command: Command = {
             return message.channel.send('❎ |**¡No tienes permisos suficientes para usar este comando!**');
         }   
 
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const config = require(path.join(process.cwd(), 'config.json'));
 
         if (!args[0])

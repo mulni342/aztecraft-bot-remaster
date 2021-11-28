@@ -18,6 +18,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'help',
@@ -25,8 +27,8 @@ const command = {
         var _a;
         const avatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
         const config = require('../../config.json');
-        const community_basic = config.basic_infos.community || message.basic;
-        const logo_basic = config.basic_infos.logo || message.basic;
+        const community_basic = config.basic_infos.community;
+        const logo_basic = config.basic_infos.logo;
         if (!avatarURL)
             return;
         const embed = new Discord.MessageEmbed()

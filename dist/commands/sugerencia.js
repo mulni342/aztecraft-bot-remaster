@@ -18,6 +18,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'sugerencia',
@@ -32,7 +34,7 @@ const command = {
             .setDescription(`✅ **| ${message.author}, ¡Tu sugerencia fue enviada correctamente!**`)
             .setColor('GREEN');
         message.author.send({ 'embeds': [embed2] })
-            .catch(r => { });
+            .catch(() => { });
         const userAvatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
         if (!userAvatarURL)
             return;

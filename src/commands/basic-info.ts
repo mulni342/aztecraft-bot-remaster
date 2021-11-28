@@ -1,4 +1,4 @@
-import * as Discord from 'discord.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Command } from '../types';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -36,11 +36,7 @@ const command: Command = {
         
         let info_basic: any;
 
-<<<<<<< HEAD
-        config['basic_infos'][types[args[0]]] = (message as any).basic;
-=======
         config['basic_infos'][types[args[0]]] = info_basic;
->>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
 
         message.channel.send(`<#${info_basic}> es el nuevo dato de ${args[0]}`);
 

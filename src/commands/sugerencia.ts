@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -19,7 +21,7 @@ const command: Command = {
 
 
         message.author.send({ 'embeds': [embed2] })
-            .catch(r => { });
+            .catch(() => { });
 
         const userAvatarURL = client.user?.displayAvatarURL();
 

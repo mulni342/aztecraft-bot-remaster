@@ -18,12 +18,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'report',
     run: (message, client, args) => {
         const server = message.guild;
-        const member = message.member;
         const config = require('../../config.json');
         const logs_channel = config.channels.logs || message.channelId;
         const user = message.mentions.users.first();

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { Command } from '../types';
 import * as Discord from 'discord.js';
 
@@ -6,15 +7,9 @@ const command: Command = {
     run: (message, client, args) =>
     {
 
-<<<<<<< HEAD
         const config = require('../../config.json');
         const sells_channel = config.channels.sells || message.channelId;
-        const logo_basic = config.basic_infos.logo || message.basic;
-=======
-        let config = require("../../config.json");
-        let sells_channel = config.channels.sells || message.channelId;
-        let logo_basic = config.basic_infos.logo;
->>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
+        const logo_basic = config.basic_infos.logo;
 
         const algo = args.slice(0).join(' ').split('|');
         if (!algo[0]) return message.channel.send('❎ **| Debes proporcionar tu nick del juego.**');

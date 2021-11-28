@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as discord from 'discord.js';
 
 export interface Event {

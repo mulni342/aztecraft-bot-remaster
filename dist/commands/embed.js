@@ -18,6 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'embed',

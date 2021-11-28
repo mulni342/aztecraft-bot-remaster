@@ -18,6 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'ban',
@@ -45,7 +46,7 @@ const command = {
             razon = 'No hay una razón definida.';
         }
         razon = razon + '';
-        (_g = message.guild) === null || _g === void 0 ? void 0 : _g.members.ban(user, { reason: razon }).catch(e => message.reply('❎ **| Se ha producido un error.**'));
+        (_g = message.guild) === null || _g === void 0 ? void 0 : _g.members.ban(user, { reason: razon }).catch(() => message.reply('❎ **| Se ha producido un error.**'));
         const serverIconURL = server === null || server === void 0 ? void 0 : server.iconURL();
         if (!server || !serverIconURL)
             return;

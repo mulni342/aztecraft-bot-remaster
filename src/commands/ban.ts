@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -38,7 +39,7 @@ const command: Command = {
 
         razon = razon + '';
 
-        message.guild?.members.ban(user, { reason: razon }).catch(e => message.reply('❎ **| Se ha producido un error.**'));
+        message.guild?.members.ban(user, { reason: razon }).catch(() => message.reply('❎ **| Se ha producido un error.**'));
 
         const serverIconURL = server?.iconURL();
 

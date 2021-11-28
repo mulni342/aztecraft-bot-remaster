@@ -1,28 +1,19 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
 const command: Command = {
     name: 'redes',
-    run: (message, client, args) =>
+    run: (message, client) =>
     {
 
-<<<<<<< HEAD
         const avatarURL = client.user?.displayAvatarURL();
         const config = require('../../config.json');
-        const community_basic = config.basic_infos.community || message.basic;
-        const logo_basic = config.basic_infos.logo || message.basic;
-        const youtube_basic = config.basic_infos.youtube || message.basic;
-        const shop_basic = config.basic_infos.youtube || message.basic;
-        const invitation_basic = config.basic_infos.invitation || message.basic;
-=======
-        let avatarURL = client.user?.displayAvatarURL();
-        let config = require("../../config.json");
-        let community_basic = config.basic_infos.community;
-        let logo_basic = config.basic_infos.logo;
-        let youtube_basic = config.basic_infos.youtube;
-        let shop_basic = config.basic_infos.shop;
-        let invitation_basic = config.basic_infos.invitation;
->>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
+        const community_basic = config.basic_infos.community;
+        const logo_basic = config.basic_infos.logo;
+        const youtube_basic = config.basic_infos.youtube;
+        const shop_basic = config.basic_infos.shop;
+        const invitation_basic = config.basic_infos.invitation;
 
         if (!avatarURL) return;
 

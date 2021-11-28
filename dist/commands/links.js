@@ -18,18 +18,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'redes',
-    run: (message, client, args) => {
+    run: (message, client) => {
         var _a;
         const avatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
         const config = require('../../config.json');
-        const community_basic = config.basic_infos.community || message.basic;
-        const logo_basic = config.basic_infos.logo || message.basic;
-        const youtube_basic = config.basic_infos.youtube || message.basic;
-        const shop_basic = config.basic_infos.youtube || message.basic;
-        const invitation_basic = config.basic_infos.invitation || message.basic;
+        const community_basic = config.basic_infos.community;
+        const logo_basic = config.basic_infos.logo;
+        const youtube_basic = config.basic_infos.youtube;
+        const shop_basic = config.basic_infos.shop;
+        const invitation_basic = config.basic_infos.invitation;
         if (!avatarURL)
             return;
         const embed = new Discord.MessageEmbed()

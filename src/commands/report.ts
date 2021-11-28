@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -6,7 +7,6 @@ const command: Command = {
     run: (message, client, args) =>
     {
         const server = message.guild;
-        const member = message.member;
 
         const config = require('../../config.json');
         const logs_channel = config.channels.logs || message.channelId;

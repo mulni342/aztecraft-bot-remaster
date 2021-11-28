@@ -1,7 +1,7 @@
 "use strict";
 const command = {
     name: 'purge',
-    run: (message, client, args) => {
+    run: (message, _client, args) => {
         const cantidad = parseInt(args[0]);
         if (!cantidad)
             return message.channel.send('❎ **| ¡Tienes que escribir la cantidad de mensajes que deseas eliminar!**');

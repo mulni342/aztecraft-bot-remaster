@@ -27,6 +27,7 @@ const command = {
         if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('MANAGE_CHANNELS'))) {
             return message.channel.send('❎ |**¡No tienes permisos suficientes para usar este comando!**');
         }
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const config = require(path.join(process.cwd(), 'config.json'));
         if (!args[0]) {
             return message.channel.send('❎ |**Define el tipo de canal. \n¡Tipos de canales: `sugerencias, registros, ventas y confesiones`!**');

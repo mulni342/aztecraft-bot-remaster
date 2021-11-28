@@ -18,6 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+/* eslint-disable @typescript-eslint/no-empty-function */
 const Discord = __importStar(require("discord.js"));
 const command = {
     name: 'kick',
@@ -58,7 +59,7 @@ const command = {
                 .addField('Moderador responsable:', message.author.tag)
                 .addField('Razón de la expulsión:', razon);
             user.send({ embeds: [embed2] })
-                .catch(e => { });
+                .catch(() => { });
             const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL())
                 .setDescription(`El usuario ${user} ¡ha sido expulsado con exito!`)

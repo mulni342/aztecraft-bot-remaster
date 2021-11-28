@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as Discord from 'discord.js';
 import { Command } from '../types';
 
@@ -5,8 +7,6 @@ const command: Command = {
     name: 'gend',
     run: (message, client, args) =>
     {
-        const ms = require('ms');
-
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === 'Giveaways'))
         {
             return message.channel.send('❎**| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
@@ -36,7 +36,6 @@ const command: Command = {
 
             .then(() =>
             {
-
                 message.channel.send('El sorteo terminará en menos de ' + ((client as any).giveawaysManager.options.updateCountdownEvery / 1000) + ' segundos...');
             })
             .catch((e: any) =>
