@@ -8,8 +8,8 @@ let command: Command = {
 
         let avatarURL = client.user?.displayAvatarURL();
         let config = require("../../config.json");
-        let community_basic = config.basic_infos.community || message.basic;
-        let logo_basic = config.basic_infos.logo || message.basic;
+        let community_basic = config.basic_infos.community;
+        let logo_basic = config.basic_infos.logo;
 
         if (!avatarURL) return;
 

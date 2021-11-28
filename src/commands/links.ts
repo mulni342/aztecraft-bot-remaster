@@ -8,11 +8,11 @@ let command: Command = {
 
         let avatarURL = client.user?.displayAvatarURL();
         let config = require("../../config.json");
-        let community_basic = config.basic_infos.community || message.basic;
-        let logo_basic = config.basic_infos.logo || message.basic;
-        let youtube_basic = config.basic_infos.youtube || message.basic;
-        let shop_basic = config.basic_infos.youtube || message.basic;
-        let invitation_basic = config.basic_infos.invitation || message.basic;
+        let community_basic = config.basic_infos.community;
+        let logo_basic = config.basic_infos.logo;
+        let youtube_basic = config.basic_infos.youtube;
+        let shop_basic = config.basic_infos.shop;
+        let invitation_basic = config.basic_infos.invitation;
 
         if (!avatarURL) return;
 

@@ -8,7 +8,7 @@ let command: Command = {
 
         let config = require("../../config.json");
         let sells_channel = config.channels.sells || message.channelId;
-        let logo_basic = config.basic_infos.logo || message.basic;
+        let logo_basic = config.basic_infos.logo;
 
         let algo = args.slice(0).join(' ').split('|')
         if (!algo[0]) return message.channel.send(`❎ **| Debes proporcionar tu nick del juego.**`)
