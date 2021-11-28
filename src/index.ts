@@ -8,7 +8,6 @@ import { GiveawaysManager } from "discord-giveaways";
 require("dotenv").config();
 
 let config = require("../config.json")
-
 process.env.prefix = config.prefix;
 
 let client = new discord.Client({
