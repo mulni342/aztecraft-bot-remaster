@@ -19,24 +19,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 const Discord = __importStar(require("discord.js"));
-let command = {
+const command = {
     name: 'help',
     run: (message, client, args) => {
         var _a;
-        let avatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
-        let config = require("../../config.json");
-        let community_basic = config.basic_infos.community || message.basic;
-        let logo_basic = config.basic_infos.logo || message.basic;
+        const avatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
+        const config = require('../../config.json');
+        const community_basic = config.basic_infos.community || message.basic;
+        const logo_basic = config.basic_infos.logo || message.basic;
         if (!avatarURL)
             return;
-        let embed = new Discord.MessageEmbed()
-            .setAuthor(`¡Comandos de PecaBot!`, avatarURL)
+        const embed = new Discord.MessageEmbed()
+            .setAuthor('¡Comandos de PecaBot!', avatarURL)
             .setThumbnail(logo_basic)
             .setDescription(`¡Hola! ${message.author}, soy el bot oficial del servidor ${community_basic} acá abajo te aparecerá una lista detallada de mis comandos, espero y te sean de mucha ayuda!.. 💫`)
-            .addField("Comandos Utiles", "**` ip | redes | report | sugerencia | sell | gstart | gend | anuncio`**")
-            .addField("Comandos de moderación", "**` prefijo | canal | Ban | kick | mute | unmute | purge`**")
-            .addField("Comandos de Entretenimiento", "**`love | say | embed | confesion`**")
-            .setColor("RED");
+            .addField('Comandos Utiles', '**` ip | redes | report | sugerencia | sell | gstart | gend | anuncio`**')
+            .addField('Comandos de moderación', '**` prefijo | canal | Ban | kick | mute | unmute | purge`**')
+            .addField('Comandos de Entretenimiento', '**`love | say | embed | confesion`**')
+            .setColor('RED');
         message.channel.send({
             'embeds': [embed]
         });

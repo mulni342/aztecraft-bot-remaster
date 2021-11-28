@@ -20,29 +20,29 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
-let command = {
-    name: "channel",
+const command = {
+    name: 'channel',
     run: (message, client, args) => {
         var _a;
-        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has("MANAGE_CHANNELS"))) {
-            return message.channel.send("❎ |**¡No tienes permisos suficientes para usar este comando!**");
+        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('MANAGE_CHANNELS'))) {
+            return message.channel.send('❎ |**¡No tienes permisos suficientes para usar este comando!**');
         }
-        let config = require(path.join(process.cwd(), "config.json"));
+        const config = require(path.join(process.cwd(), 'config.json'));
         if (!args[0]) {
-            return message.channel.send("❎ |**Define el tipo de canal. \n¡Tipos de canales: `sugerencias, registros, ventas y confesiones`!**");
+            return message.channel.send('❎ |**Define el tipo de canal. \n¡Tipos de canales: `sugerencias, registros, ventas y confesiones`!**');
         }
-        let types = {
-            'sugerencias': "suggestions",
-            'registros': "logs",
-            'ventas': "sells",
-            'confesiones': "confessions"
+        const types = {
+            'sugerencias': 'suggestions',
+            'registros': 'logs',
+            'ventas': 'sells',
+            'confesiones': 'confessions'
         };
         if (!types[args[0]]) {
-            return message.channel.send("❎ |**El tipo de canal definido no es valido.**");
+            return message.channel.send('❎ |**El tipo de canal definido no es valido.**');
         }
         config['channels'][types[args[0]]] = message.channelId;
         message.channel.send(`<#${message.channelId}> es el nuevo canal de ${args[0]}`);
-        fs.writeFileSync(path.join(process.cwd(), "config.json"), JSON.stringify(config, null, 4));
+        fs.writeFileSync(path.join(process.cwd(), 'config.json'), JSON.stringify(config, null, 4));
     }
 };
 module.exports = command;

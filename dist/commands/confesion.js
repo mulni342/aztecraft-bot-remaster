@@ -19,20 +19,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 const Discord = __importStar(require("discord.js"));
-let command = {
+const command = {
     name: 'confesion',
     run: (message, client, args) => {
-        let texto = args.slice(0).join(' ');
+        const texto = args.slice(0).join(' ');
         if (!texto)
-            return message.channel.send("❎ **| Debes enviar un mensaje.**");
-        let config = require("../../config.json");
-        let confessions_channel = config.channels.confessions || message.channelId;
-        let embed = new Discord.MessageEmbed()
+            return message.channel.send('❎ **| Debes enviar un mensaje.**');
+        const config = require('../../config.json');
+        const confessions_channel = config.channels.confessions || message.channelId;
+        const embed = new Discord.MessageEmbed()
             .setTitle(' 💬 **Nueva confesión**')
             .setDescription(texto)
             .setColor('RANDOM')
             .setFooter('Atentamente: Un desconocido.');
-        var Canal = client.channels.cache.find(channel => channel.id === (confessions_channel));
+        const Canal = client.channels.cache.find(channel => channel.id === (confessions_channel));
         if (!Canal || !Canal.isText())
             return;
         Canal.send({ embeds: [embed] });

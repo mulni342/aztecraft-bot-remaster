@@ -24,37 +24,37 @@ const discord = __importStar(require("discord.js"));
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 const discord_giveaways_1 = require("discord-giveaways");
-require("dotenv").config();
-let config = require("../config.json");
+require('dotenv').config();
+const config = require('../config.json');
 process.env.prefix = config.prefix;
-let client = new discord.Client({
+const client = new discord.Client({
     intents: [
         discord.Intents.FLAGS.GUILDS,
         discord.Intents.FLAGS.GUILD_MESSAGES
     ]
 });
 client.giveawaysManager = new discord_giveaways_1.GiveawaysManager(client, {
-    storage: "../giveaways.json",
+    storage: '../giveaways.json',
     updateCountdownEvery: 5000,
     default: {
         botsCanWin: false,
-        embedColor: "#FF0000",
-        reaction: "🎉"
+        embedColor: '#FF0000',
+        reaction: '🎉'
     }
 });
 exports.commandsCollection = new discord.Collection();
 // Command Loader
 (() => {
-    let commands = fs.readdirSync(path.join(__dirname, "commands"));
-    for (let commandDirectory of commands) {
-        let command = require(path.join(__dirname, "commands", commandDirectory));
+    const commands = fs.readdirSync(path.join(__dirname, 'commands'));
+    for (const commandDirectory of commands) {
+        const command = require(path.join(__dirname, 'commands', commandDirectory));
         exports.commandsCollection.set(command.name, command);
     }
 })();
 (() => {
-    let events = fs.readdirSync(path.join(__dirname, "events"));
-    for (let eventDirectory of events) {
-        let event = require(path.join(__dirname, "events", eventDirectory));
+    const events = fs.readdirSync(path.join(__dirname, 'events'));
+    for (const eventDirectory of events) {
+        const event = require(path.join(__dirname, 'events', eventDirectory));
         client.on(event.name, (...args) => {
             event.run(client, ...args);
         });

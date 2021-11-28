@@ -19,33 +19,33 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 const Discord = __importStar(require("discord.js"));
-let command = {
+const command = {
     name: 'sugerencia',
     run: (message, client, args) => {
         var _a;
-        let texto = args.slice(0).join(" ");
+        const texto = args.slice(0).join(' ');
         if (!texto)
-            return message.channel.send(`❎ **| ¡Debes escribir y enviar una sugerencia!** `);
-        let config = require("../../config.json");
-        let suggestions_channel = config.channels.suggestions || message.channelId;
-        let embed2 = new Discord.MessageEmbed()
+            return message.channel.send('❎ **| ¡Debes escribir y enviar una sugerencia!** ');
+        const config = require('../../config.json');
+        const suggestions_channel = config.channels.suggestions || message.channelId;
+        const embed2 = new Discord.MessageEmbed()
             .setDescription(`✅ **| ${message.author}, ¡Tu sugerencia fue enviada correctamente!**`)
-            .setColor("GREEN");
+            .setColor('GREEN');
         message.author.send({ 'embeds': [embed2] })
             .catch(r => { });
-        let userAvatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
+        const userAvatarURL = (_a = client.user) === null || _a === void 0 ? void 0 : _a.displayAvatarURL();
         if (!userAvatarURL)
             return;
         const embed = new Discord.MessageEmbed()
-            .setAuthor("Sistema de sugerencias | PecaBot")
+            .setAuthor('Sistema de sugerencias | PecaBot')
             .setTitle('• **Nueva sugerencia** •')
-            .addField("Sugerencia:", texto)
-            .addField("Autor de la sugerencia:", `<@${message.author.id}>`)
+            .addField('Sugerencia:', texto)
+            .addField('Autor de la sugerencia:', `<@${message.author.id}>`)
             .setColor('RANDOM')
-            .setFooter(`Sistema de sugerencias | PecaBot`)
+            .setFooter('Sistema de sugerencias | PecaBot')
             .setTimestamp();
         // client.channels.cache.get('735903826854543421').send({ 'embeds': [ embed ] }).then(m => { m.react('✅'), m.react('❌') })
-        let channel = client.channels.cache.get(suggestions_channel);
+        const channel = client.channels.cache.get(suggestions_channel);
         if (!channel || !channel.isText())
             return;
         channel.send({ 'embeds': [embed] })

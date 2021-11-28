@@ -19,18 +19,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 const Discord = __importStar(require("discord.js"));
-let command = {
+const command = {
     name: 'embed',
     run: (message, client, args) => {
-        let algo = args.slice(0).join(' ').split('|');
+        const algo = args.slice(0).join(' ').split('|');
         if (!algo[0])
-            return message.channel.send(`❎ **| Debes proporcionar un titulo para tu embed** `);
+            return message.channel.send('❎ **| Debes proporcionar un titulo para tu embed** ');
         if (!algo[1])
-            return message.channel.send(`<❎ **| Debes proporcionar una descripción para tu embed** `);
-        let color = "#ff0000";
+            return message.channel.send('<❎ **| Debes proporcionar una descripción para tu embed** ');
+        let color = '#ff0000';
         if (algo[2])
             color = algo[2];
-        let asd = new Discord.MessageEmbed()
+        const asd = new Discord.MessageEmbed()
             .setTitle(algo[0])
             .setDescription(algo[1])
             .setColor(color);

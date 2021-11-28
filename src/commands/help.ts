@@ -6,10 +6,17 @@ const command: Command = {
     run: (message, client, args) =>
     {
 
+<<<<<<< HEAD
         const avatarURL = client.user?.displayAvatarURL();
         const config = require('../../config.json');
         const community_basic = config.basic_infos.community || message.basic;
         const logo_basic = config.basic_infos.logo || message.basic;
+=======
+        let avatarURL = client.user?.displayAvatarURL();
+        let config = require("../../config.json");
+        let community_basic = config.basic_infos.community;
+        let logo_basic = config.basic_infos.logo;
+>>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
 
         if (!avatarURL) return;
 

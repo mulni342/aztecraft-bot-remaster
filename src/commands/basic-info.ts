@@ -33,10 +33,16 @@ const command: Command = {
         {
             return message.channel.send('❎ |**El tipo de dato definido no es valido.**');
         }
+        
+        let info_basic: any;
 
+<<<<<<< HEAD
         config['basic_infos'][types[args[0]]] = (message as any).basic;
+=======
+        config['basic_infos'][types[args[0]]] = info_basic;
+>>>>>>> d4bce7c73ae293ce5f6a30d387df4d81e757762d
 
-        message.channel.send(`<#${message.basic}> es el nuevo dato de ${args[0]}`);
+        message.channel.send(`<#${info_basic}> es el nuevo dato de ${args[0]}`);
 
         fs.writeFileSync(path.join(process.cwd(), 'config.json'), JSON.stringify(config, null, 4));
     }

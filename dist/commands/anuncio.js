@@ -1,11 +1,11 @@
 "use strict";
-let command = {
+const command = {
     name: 'anuncio',
     run: (message, client, args) => {
         var _a;
-        let server = message.guild;
-        let asup = (m) => m.author.id === message.author.id;
-        let perm = (_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('ADMINISTRATOR');
+        const server = message.guild;
+        const asup = (m) => m.author.id === message.author.id;
+        const perm = (_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('ADMINISTRATOR');
         if (!perm)
             return message.channel.send('❎**| ¡Permisos insuficientes para ejecutar este comando!.**');
         message.channel.send({
@@ -24,10 +24,10 @@ let command = {
                 var _a;
                 if (!msg)
                     return;
-                let fmsg = msg.first();
+                const fmsg = msg.first();
                 if (!fmsg)
                     return;
-                let room = (_a = message.guild) === null || _a === void 0 ? void 0 : _a.channels.cache.get(fmsg.content.replace('<#', '').replace('>', ''));
+                const room = (_a = message.guild) === null || _a === void 0 ? void 0 : _a.channels.cache.get(fmsg.content.replace('<#', '').replace('>', ''));
                 if (!room)
                     return message.channel.send({
                         embeds: [
@@ -50,7 +50,7 @@ let command = {
                         filter: asup
                     }).then(msg => {
                         var _a;
-                        let title = (_a = msg.first()) === null || _a === void 0 ? void 0 : _a.content;
+                        const title = (_a = msg.first()) === null || _a === void 0 ? void 0 : _a.content;
                         message.channel.send({
                             embeds: [
                                 {
@@ -65,7 +65,7 @@ let command = {
                                 errors: ['time']
                             }).then(msg => {
                                 var _a;
-                                let descri = (_a = msg.first()) === null || _a === void 0 ? void 0 : _a.content;
+                                const descri = (_a = msg.first()) === null || _a === void 0 ? void 0 : _a.content;
                                 if (!title || !descri)
                                     return;
                                 if ((title.length + descri.length) > 2048)

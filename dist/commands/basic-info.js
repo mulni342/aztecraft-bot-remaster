@@ -20,30 +20,32 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
-let command = {
-    name: "basic-info",
+const command = {
+    name: 'basic-info',
     run: (message, client, args) => {
         var _a;
-        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has("ADMINISTRATOR"))) {
-            return message.channel.send("❎ |**¡No tienes permisos suficientes para usar este comando!**");
+        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('ADMINISTRATOR'))) {
+            return message.channel.send('❎ |**¡No tienes permisos suficientes para usar este comando!**');
         }
-        let config = require(path.join(process.cwd(), "config.json"));
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const config = require(path.join(process.cwd(), 'config.json'));
         if (!args[0]) {
-            return message.channel.send("❎ |**Define el tipo de datos. \n¡Tipos de datos: `comunidad, invitacion, logo, youtube y tienda`!**");
+            return message.channel.send('❎ |**Define el tipo de datos. \n¡Tipos de datos: `comunidad, invitacion, logo, youtube y tienda`!**');
         }
-        let types = {
-            'comunidad': "community",
-            'invitacion': "invitation",
-            'logo': "logo",
-            'youtube': "youtube",
-            'tienda': "shop"
+        const types = {
+            'comunidad': 'community',
+            'invitacion': 'invitation',
+            'logo': 'logo',
+            'youtube': 'youtube',
+            'tienda': 'shop'
         };
         if (!types[args[0]]) {
-            return message.channel.send("❎ |**El tipo de dato definido no es valido.**");
+            return message.channel.send('❎ |**El tipo de dato definido no es valido.**');
         }
+        let info_basic;
         config['basic_infos'][types[args[0]]] = message.basic;
-        message.channel.send(`<#${message.basic}> es el nuevo dato de ${args[0]}`);
-        fs.writeFileSync(path.join(process.cwd(), "config.json"), JSON.stringify(config, null, 4));
+        message.channel.send(`<#${info_basic}> es el nuevo dato de ${args[0]}`);
+        fs.writeFileSync(path.join(process.cwd(), 'config.json'), JSON.stringify(config, null, 4));
     }
 };
 module.exports = command;

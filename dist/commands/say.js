@@ -1,8 +1,8 @@
 "use strict";
-let command = {
+const command = {
     name: 'say',
     run: (message, client, args) => {
-        let texto = args.slice(0).join(' ');
+        const texto = args.slice(0).join(' ');
         message.channel.send(texto);
         message.delete();
     }

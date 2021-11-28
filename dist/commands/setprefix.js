@@ -20,23 +20,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
-let command = {
-    name: "setprefix",
+const command = {
+    name: 'setprefix',
     run: (message, client, args) => {
         var _a;
-        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has("MANAGE_MESSAGES"))) {
-            return message.channel.send("❎ |**¡No tienes permiso para usar este comando!**");
+        if (!((_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has('MANAGE_MESSAGES'))) {
+            return message.channel.send('❎ |**¡No tienes permiso para usar este comando!**');
         }
-        let config = require(path.join(process.cwd(), "config.json"));
+        const config = require(path.join(process.cwd(), 'config.json'));
         if (args[0] == undefined) {
-            return message.channel.send("❎ |**No definiste un prefijo nuevo!**");
+            return message.channel.send('❎ |**No definiste un prefijo nuevo!**');
         }
         if (args[0].length > 5) {
-            return message.channel.send("❎ |**¡El prefijo no puede exceder los 5 caracteres!**");
+            return message.channel.send('❎ |**¡El prefijo no puede exceder los 5 caracteres!**');
         }
         config['prefix'] = args[0];
         process.env.prefix = args[0];
-        fs.writeFileSync(path.join(process.cwd(), "config.json"), JSON.stringify(config, null, 4));
+        fs.writeFileSync(path.join(process.cwd(), 'config.json'), JSON.stringify(config, null, 4));
         message.channel.send(`Nuevo Prefijo: **${args[0]}**`);
     }
 };
