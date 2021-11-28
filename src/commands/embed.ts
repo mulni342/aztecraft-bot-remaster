@@ -6,9 +6,9 @@ let command: Command = {
     run: (message, client, args) =>
     {
         let algo = args.slice(0).join(' ').split('|')
-        if (!algo[0]) return message.channel.send(`<a:error:735244847019065416> **| Debes proporcionar un titulo para tu texto** `)
+        if (!algo[0]) return message.channel.send(`❎ **| Debes proporcionar un titulo para tu embed** `)
 
-        if (!algo[1]) return message.channel.send(`<a:error:735244847019065416> **| Debes proporcionar una descripción para tu texto** `)
+        if (!algo[1]) return message.channel.send(`<❎ **| Debes proporcionar una descripción para tu embed** `)
 
         let color: any = "#ff0000";
 

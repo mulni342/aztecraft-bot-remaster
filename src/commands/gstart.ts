@@ -10,7 +10,7 @@ let command: Command = {
 
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === "Giveaways"))
         {
-            return message.channel.send('<a:error:735244847019065416> **|Debe tener los permisos de administración de mensajes para comenzar los sorteos.**');
+            return message.channel.send('❎ **|Debe tener los permisos de administración de mensajes para comenzar los sorteos.**');
         }
 
 
@@ -18,14 +18,14 @@ let command: Command = {
 
         if (!giveawayChannel)
         {
-            return message.channel.send('<a:error:735244847019065416> **|¡Tienes que mencionar un canal válido!**');
+            return message.channel.send('❎ **|¡Tienes que mencionar un canal de texto válido!**');
         }
 
         let giveawayDuration = args[1];
 
         if (!giveawayDuration || isNaN(ms(giveawayDuration)))
         {
-            return message.channel.send('<a:error:735244847019065416> **| No has especificado la duración**');
+            return message.channel.send('❎ **| No has especificado la duración.**');
         }
 
 
@@ -33,14 +33,14 @@ let command: Command = {
 
         if (isNaN(giveawayNumberWinners) || (parseInt(giveawayNumberWinners) <= 0))
         {
-            return message.channel.send('<a:error:735244847019065416> **| ¡Tienes que especificar un número válido de ganadores!**');
+            return message.channel.send('❎ **| ¡Tienes que especificar un número válido de ganadores!**');
         }
 
         let giveawayPrize = args.slice(3).join(' ');
 
         if (!giveawayPrize)
         {
-            return message.channel.send('<a:error:735244847019065416> **| ¡Tienes que especificar un premio válido!**');
+            return message.channel.send('❎ **| ¡Tienes que especificar un premio válido!**');
         }
 
 
@@ -54,20 +54,20 @@ let command: Command = {
 
 
             messages: {
-                giveaway: "🎉🎉 **GIVEAWAY** 🎉🎉",
+                giveaway: "🎉🎉 **Sorteo** 🎉🎉",
                 giveawayEnded: "🎉🎉**Sorteo terminado** 🎉🎉",
-                timeRemaining: "Tiempo transcurrido: **{duration}**!",
-                inviteToParticipate: "Reacciona con 🎉 para participar!",
+                timeRemaining: "Tiempo transcurrido: ¡**{duration}**!",
+                inviteToParticipate: "¡Reacciona con 🎉 para participar!",
                 winMessage: "Felicidades, {winners}! Has ganado **{prize}**!",
-                embedFooter: "Giveaways",
-                noWinner: "El sorteo ha sido cancelado por falta de participantes!.",
+                embedFooter: "Sorteos",
+                noWinner: "¡El sorteo ha sido cancelado por falta de participantes!.",
                 winners: "Ganadores",
                 endedAt: "Terminó",
                 units: {
-                    seconds: "seconds",
-                    minutes: "minutes",
-                    hours: "hours",
-                    days: "days",
+                    seconds: "segundos",
+                    minutes: "minutos",
+                    hours: "horas",
+                    days: "días",
                     pluralS: false
                 }
             }

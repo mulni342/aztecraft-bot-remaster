@@ -9,12 +9,12 @@ let command: Command = {
 
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === "Giveaways"))
         {
-            return message.channel.send('<a:error:735244847019065416> **| No tienes los permisos necesarios para ejecutar esta acción!.** ');
+            return message.channel.send('❎**| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
         }
 
         if (!args[0])
         {
-            return message.channel.send('<a:error:735244847019065416>  **|¡Tienes que especificar un ID de mensaje válido!**');
+            return message.channel.send('❎ **|¡Tienes que especificar el ID de un mensaje válido!**');
         }
 
 
@@ -41,13 +41,13 @@ let command: Command = {
             })
             .catch((e: any) =>
             {
-                if (e.startsWith(`Giveaway with message ID ${giveaway.messageID} is already ended.`))
+                if (e.startsWith(`El Sorteo con la ID de mensaje proporcionada:  ${giveaway.messageID} ya ha terminado.`))
                 {
-                    message.channel.send('This giveaway is already ended!');
+                    message.channel.send('¡Este sorteo ya terminó!');
                 } else
                 {
                     console.error(e);
-                    message.channel.send('An error occured...');
+                    message.channel.send('Ocurrió un error...');
                 }
             });
     }
