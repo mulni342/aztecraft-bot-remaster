@@ -19,7 +19,7 @@ let client = new discord.Client({
 });
 
 (client as any).giveawaysManager = new GiveawaysManager(client, {
-    storage: "./giveaways.json",
+    storage: "../giveaways.json",
     updateCountdownEvery: 5000,
     default: {
         botsCanWin: false,

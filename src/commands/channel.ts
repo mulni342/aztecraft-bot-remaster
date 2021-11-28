@@ -4,20 +4,20 @@ import * as path from "path"
 import * as fs from "fs"
 
 let command: Command = {
-    name: "canal",
+    name: "channel",
     run: (message, client, args) =>
     {
 
         if (!message.member?.permissions.has("MANAGE_CHANNELS"))
         {
-            return message.channel.send(":error:  |**No tienes permiso para usar este comando!!**");
+            return message.channel.send("❎ |**¡No tienes permisos suficientes para usar este comando!**");
         }   
 
         let config = require(path.join(process.cwd(), "config.json"));
 
         if (!args[0])
         {
-            return message.channel.send(":error:  |**Define el tipo de canal. \ntipos de canales, `sugerencias, registros, ventas, confesiones`!!**")
+            return message.channel.send("❎ |**Define el tipo de canal. \n¡Tipos de canales: `sugerencias, registros, ventas y confesiones`!**")
         }
 
         let types: any = {
@@ -29,7 +29,7 @@ let command: Command = {
 
         if (!types[args[0]])
         {
-            return message.channel.send(":error: |**El tipo de canal definido es invalido**");
+            return message.channel.send("❎ |**El tipo de canal definido no es valido.**");
         }
 
         config['channels'][types[args[0]]] = message.channelId;

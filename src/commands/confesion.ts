@@ -6,16 +6,16 @@ let command: Command = {
     run: (message, client, args) =>
     {
         let texto = args.slice(0).join(' ')
-        if (!texto) return message.channel.send("<a:error:735244847019065416> **| Debes mandar un mensaje**")
+        if (!texto) return message.channel.send("❎ **| Debes enviar un mensaje.**")
 
         let config = require("../../config.json");
         let confessions_channel = config.channels.confessions || message.channelId;
         
         let embed = new Discord.MessageEmbed()
-            .setTitle(' :mega: **Nueva confesión**')
+            .setTitle(' 💬 **Nueva confesión**')
             .setDescription(texto)
             .setColor('RANDOM')
-            .setFooter('Atentamente: Desconocido')
+            .setFooter('Atentamente: Un desconocido.')
 
 
         var Canal = client.channels.cache.find(channel => channel.id === (confessions_channel));

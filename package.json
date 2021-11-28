@@ -1,6 +1,6 @@
 {
-  "name": "demoncrafters-remaster",
-  "version": "1.0.0",
+  "name": "pecabot-r",
+  "version": "0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {

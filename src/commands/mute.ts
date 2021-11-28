@@ -6,32 +6,32 @@ let command: Command = {
     run: (message, client, args) =>
     {
         let usuario = message.mentions.members?.first() || message.guild?.members.resolve(args[0])
-        let razon = args[1] ? args.slice(1).join(' ') : 'No definida'
+        let razon = args[1] ? args.slice(1).join(' ') : 'No definido.'
         let role = message.guild?.roles.cache.find(x => x.name === 'Silenciado')
         let server = message.guild
 
         let config = require("../../config.json");
         let logs_channel = config.channels.logs || message.channelId;
 
-        if (!message.member?.permissions.has('KICK_MEMBERS')) return message.channel.send('<a:error:735244847019065416> **| No tienes los permisos para ejecutar este comando**')
+        if (!message.member?.permissions.has('KICK_MEMBERS')) return message.channel.send('❎ **| No tienes los permisos suficientes para ejecutar este comando.**')
 
-        if (!message.member?.permissions.has('MANAGE_MESSAGES')) return message.channel.send('<a:error:735244847019065416> **| No tienes los permisos para ejecutar este comando**')
+        if (!message.member?.permissions.has('MANAGE_MESSAGES')) return message.channel.send('❎ **| No tienes los permisos suficientes para ejecutar este comando.**')
 
-        if (!message.guild?.me?.permissions.has('MANAGE_ROLES')) return message.channel.send('<a:error:735244847019065416> **| Necesito el permiso de gestionar roles**');
+        if (!message.guild?.me?.permissions.has('MANAGE_ROLES')) return message.channel.send('❎ **| Necesito el permiso de gestionar roles.**');
 
-        if (!usuario) return message.channel.send('<a:error:735244847019065416> **| No has mencionado a ningun usuario**');
+        if (!usuario) return message.channel.send('❎ **| No has mencionado a ningún usuario.**');
 
-        if (usuario.id === message.author.id) return message.channel.send('<a:error:735244847019065416> ** | No puedes silenciarte a ti mismo**');
+        if (usuario.id === message.author.id) return message.channel.send('❎ ** | No puedes silenciarte a ti mismo.**');
 
-        if (usuario.id === client.user?.id) return message.channel.send('<a:error:735244847019065416> ** | No puedes silenciarme**')
+        if (usuario.id === client.user?.id) return message.channel.send('❎ ** | No puedes silenciarme.**')
 
-        if (message.guild?.ownerId !== message.author.id && usuario.roles.highest.comparePositionTo(message.member?.roles.highest) >= 0) return message.channel.send('<a:error:735244847019065416> **| No puedes silenciar a este usuario**');
+        if (message.guild?.ownerId !== message.author.id && usuario.roles.highest.comparePositionTo(message.member?.roles.highest) >= 0) return message.channel.send('❎ **| No puedes silenciar a este usuario.**');
 
-        if (role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('<a:error:735244847019065416> ** | No puedo dar el rol Silenciado**');
+        if (role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('❎ ** | No puedo dar el rol de silencio.**');
 
-        if (role && usuario.roles.cache.has(role.id)) return message.channel.send('<a:error:735244847019065416> **| Este usuario ya está silenciado**');
+        if (role && usuario.roles.cache.has(role.id)) return message.channel.send('❎ **| Este usuario ya fue silenciado.**');
 
-        if (razon.length > 1024) return message.channel.send('<a:error:735244847019065416> ** | La razon no puede exceder de 1024 caracteres**')
+        if (razon.length > 1024) return message.channel.send('❎ ** | La razón no puede exceder de los 1024 caracteres.**')
 
         if (!role)
         {
@@ -39,7 +39,7 @@ let command: Command = {
             message.guild.roles.create({
                 name: 'Silenciado',
                 color: '#6c6a6a',
-                reason: 'Mute role'
+                reason: 'Rol silenciador'
             }).then(role =>
             {
                 message.guild?.channels.cache.forEach(r =>
@@ -62,10 +62,10 @@ let command: Command = {
 
         let embed = new Discord.MessageEmbed()
 
-            .setTitle('Usuario silenciado')
-            .addField('Usuario', `<@${usuario.id}>`)
-            .addField('Moderador responsable', `${message.author}`)
-            .addField('Razon', razon)
+            .setTitle('Usuario silenciado.')
+            .addField('Usuario:', `<@${usuario.id}>`)
+            .addField('Moderador responsable:', `${message.author}`)
+            .addField('Razón', razon)
             .setColor('RANDOM')
 
         message.channel.send({
@@ -83,19 +83,19 @@ let command: Command = {
 
             .setThumbnail(serverIconURL)
             .setAuthor(server.name, serverIconURL)
-            .setDescription(`Te encuentras mutead@ del server **${server}**`)
-            .addField(`Moderador responsable`, `<@${message.author.id}>`)
-            .addField(`Razón del mute`, razon)
+            .setDescription(`Te encuentras silenciado/a en el servidor: **${server}**`)
+            .addField(`Moderador responsable:`, `<@${message.author.id}>`)
+            .addField(`Razón de ser silenciado/a:`, razon)
             .setColor("RANDOM")
 
         usuario.send({ 'embeds': [embedmd] }).catch(e => e)
 
         let gafo = new Discord.MessageEmbed()
-            .setTitle(`${message.author} ha muteado a ${usuario}`)
-            .addField(`Razón del mute`, razon)
+            .setTitle(`${message.author} has silenciado a ${usuario}`)
+            .addField(`Razón de ser silenciado/a`, razon)
             .setColor("RED")
             .setTimestamp()
-            .setFooter("Sistema de Logs")
+            .setFooter("Sistema de registros | PecaBot")
 
         var canal = client.channels.cache.find(channel => channel.id === (logs_channel));
         if (!canal || !canal.isText()) return;

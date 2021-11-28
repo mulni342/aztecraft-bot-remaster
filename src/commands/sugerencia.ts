@@ -6,7 +6,7 @@ let command: Command = {
     run: (message, client, args) =>
     {
         let texto = args.slice(0).join(" ")
-        if (!texto) return message.channel.send(`<a:error:735244847019065416> **| Debes mandar una sugerencia!..** `)
+        if (!texto) return message.channel.send(`❎ **| ¡Debes escribir y enviar una sugerencia!** `)
 
         let config = require("../../config.json");
         let suggestions_channel = config.channels.suggestions || message.channelId;
@@ -14,7 +14,7 @@ let command: Command = {
 
         let embed2 = new Discord.MessageEmbed()
 
-            .setDescription(`<a:correct:741159081724608522> **${message.author}, tu sugerencia se ha enviado correctamente**`)
+            .setDescription(`✅ **| ${message.author}, ¡Tu sugerencia fue enviada correctamente!**`)
             .setColor("GREEN")
 
 
@@ -27,12 +27,12 @@ let command: Command = {
 
         const embed = new Discord.MessageEmbed()
 
-            .setAuthor("Sistema de sugerencias Demoncrafters",)
-            .setTitle('<a:doge:735236350269194270> **Nueva sugerencia**')
-            .addField("Sugerencia", texto)
-            .addField("Autor de la sugerencia", `<@${message.author.id}>`)
+            .setAuthor("Sistema de sugerencias | PecaBot",)
+            .setTitle('• **Nueva sugerencia** •')
+            .addField("Sugerencia:", texto)
+            .addField("Autor de la sugerencia:", `<@${message.author.id}>`)
             .setColor('RANDOM')
-            .setFooter(`Sistema de Sugerencias Demoncrafters`)
+            .setFooter(`Sistema de sugerencias | PecaBot`)
             .setTimestamp()
 
         // client.channels.cache.get('735903826854543421').send({ 'embeds': [ embed ] }).then(m => { m.react('✅'), m.react('❌') })

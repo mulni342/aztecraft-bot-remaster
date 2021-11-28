@@ -7,15 +7,18 @@ let command: Command = {
     {
 
         let avatarURL = client.user?.displayAvatarURL();
+        let config = require("../../config.json");
+        let community_basic = config.basic_infos.community || message.basic;
+        let logo_basic = config.basic_infos.logo || message.basic;
 
         if (!avatarURL) return;
 
         let embed = new Discord.MessageEmbed()
-            .setAuthor(`Comandos de DemonCrafters Bot!`, avatarURL)
-            .setThumbnail("https://cdn.discordapp.com/icons/693643999503974580/5dbdfc585724250c5b33eeec3cfa03e0.webp")
-            .setDescription(`Holaa ${message.author}, soy el bot oficial del server DemonCrafters acá abajo te aparecerá una lista detallada de mis comandos, espero y te sean de mucha ayuda!.. 💫`)
+            .setAuthor(`¡Comandos de PecaBot!`, avatarURL)
+            .setThumbnail(logo_basic)
+            .setDescription(`¡Hola! ${message.author}, soy el bot oficial del servidor ${community_basic} acá abajo te aparecerá una lista detallada de mis comandos, espero y te sean de mucha ayuda!.. 💫`)
             .addField("Comandos Utiles", "**` ip | redes | report | sugerencia | sell | gstart | gend | anuncio`**")
-            .addField("Comandos de moderación", "**` prefijo | canal | Ban | kick | mute | unmute | clear`**")
+            .addField("Comandos de moderación", "**` prefijo | canal | Ban | kick | mute | unmute | purge`**")
             .addField("Comandos de Entretenimiento", "**`love | say | embed | confesion`**")
             .setColor("RED")
 

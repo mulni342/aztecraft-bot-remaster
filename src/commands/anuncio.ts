@@ -8,7 +8,7 @@ let command: Command = {
         let server = message.guild
         let asup = (m: any) => m.author.id === message.author.id
         let perm = message.member?.permissions.has('ADMINISTRATOR')
-        if (!perm) return message.channel.send('<a:error:735244847019065416> **| No tienes los permisos necesarios para ejecutar este comando!.**')
+        if (!perm) return message.channel.send('❎**| ¡Permisos insuficientes para ejecutar este comando!.**')
         message.channel.send({
             embeds: [
                 {
@@ -33,14 +33,14 @@ let command: Command = {
                 if (!room) return message.channel.send({
                     embeds: [
                         {
-                            title: 'No encontre ese canal'
+                            title: 'El canal mencionado no se a podido encontrar.'
                         }
                     ]
                 })
                 message.channel.send({
                     embeds: [
                         {
-                            title: 'Ahora envía el titulo'
+                            title: 'Envía el titulo del anuncio'
                         }
                     ]
                 }).then(() =>
@@ -57,7 +57,7 @@ let command: Command = {
                         message.channel.send({
                             embeds: [
                                 {
-                                    title: 'Ahora envía la descripción'
+                                    title: 'Envía la descripción del anuncio.'
                                 }
                             ]
                         }).then(() =>
@@ -76,7 +76,7 @@ let command: Command = {
                                 if ((title.length + descri.length) > 2048) return message.channel.send({
                                     embeds: [
                                         {
-                                            title: 'El titulo + la descripción no pueden exeder los 2049 caracteres'
+                                            title: 'El titulo y la descripción no pueden exeder los 2049 caracteres'
                                         }
                                     ]
                                 })
@@ -85,7 +85,7 @@ let command: Command = {
                                     room?.send({
                                         embeds: [
                                             {
-                                                description: `╔═════════════════════════╗\n          **    <a:asd:745002035933609997> 》${title} 《<a:asd:745002035933609997>**\n╚═════════════════════════╝\n\n${descri}`,
+                                                description: `╔═════════════════════════╗\n          **    》${title} 《 **\n╚═════════════════════════╝\n\n${descri}`,
                                                 color: 'YELLOW'
                                             }
                                         ]
