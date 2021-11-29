@@ -1,8 +1,8 @@
 {
   "name": "pecabot-r",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "/dist/index.js",
   "dependencies": {
     "discord-giveaways": "^4.2.1",
     "discord.js": "^13.3.1",

@@ -12,7 +12,7 @@ const event: Event = {
             client.user?.setPresence({
                 'activities': [{
                     'name': elementos[Math.floor(elementos.length * Math.random())],
-                    'type': 'WATCHING'
+                    'type': 'PLAYING'
                 }],
                 'status': 'online'
             });

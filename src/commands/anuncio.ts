@@ -10,7 +10,7 @@ const command: Command = {
         const server = message.guild;
         const asup = (m: any) => m.author.id === message.author.id;
         const perm = message.member?.permissions.has('ADMINISTRATOR');
-        if (!perm) return message.channel.send('❎**| ¡Permisos insuficientes para ejecutar este comando!.**');
+        if (!perm) return message.channel.send('❎ **| ¡Permisos insuficientes para ejecutar este comando!.**');
         message.channel.send({
             embeds: [
                 {

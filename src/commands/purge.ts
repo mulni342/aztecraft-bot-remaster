@@ -17,7 +17,7 @@ const command: Command = {
         message.channel.bulkDelete(cantidad);
 
 
-        message.channel.send('❎ ¡He borrado ' + cantidad + ' mensaje/s)!').then(m =>
+        message.channel.send('✅ ¡He borrado ' + cantidad + ' mensaje/s!').then(m =>
         {
             setTimeout(() => { m.delete(); }, 5000);
         });

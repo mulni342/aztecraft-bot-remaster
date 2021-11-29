@@ -9,7 +9,7 @@ const command: Command = {
         const algo = args.slice(0).join(' ').split('|');
         if (!algo[0]) return message.channel.send('❎ **| Debes proporcionar un titulo para tu embed** ');
 
-        if (!algo[1]) return message.channel.send('<❎ **| Debes proporcionar una descripción para tu embed** ');
+        if (!algo[1]) return message.channel.send('❎ **| Debes proporcionar una descripción para tu embed** ');
 
         let color: any = '#ff0000';
 

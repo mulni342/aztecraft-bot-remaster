@@ -1,16 +1,16 @@
 {
-    "prefix": "p!",
-    "channels": {
-        "logs": "912496225247449098",
-        "suggestions": "914349060322906123",
-        "sells": "914365952953577533",
-        "confessions": "911789733347196928",
-    "basic_infos": {
-      "community": "AzteCraft",
-      "invitation": "https://discord.gg/Em3YSz9QyD",
-      "logo": "https://media.discordapp.net/attachments/716816047193194507/914343021603061760/IMG_4477.png",
-      "youtube": null,
-      "shop": null
-    }
- }
+  "prefix": "p!",
+  "channels": {
+    "logs": "912496225247449098",
+    "suggestions": "914349060322906123",
+    "sells": "914365952953577533",
+    "confessions": "911789733347196928"
+  },
+  "basic_infos": {
+    "community": "AzteCraft",
+    "invitation": "https://discord.gg/Em3YSz9QyD",
+    "logo": "https://media.discordapp.net/attachments/716816047193194507/914343021603061760/IMG_4477.png",
+    "youtube": null,
+    "shop": null
+  }
 }

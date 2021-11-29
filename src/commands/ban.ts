@@ -57,7 +57,7 @@ const command: Command = {
 
         const embed = new Discord.MessageEmbed()
             .setThumbnail(serverIconURL)
-            .setDescription(`✅ ¡El usuario ${user} fue prohibido!...`)
+            .setDescription(`✅ ¡El usuario ${user} fue prohibido!`)
             .addField('Prohibido:', user.id, true)
             .setColor('RED')
             .addField('Moderador responsable:', message.author.tag)

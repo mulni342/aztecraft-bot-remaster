@@ -10,7 +10,7 @@ const command: Command = {
 
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === 'Giveaways'))
         {
-            return message.channel.send('❎ **|Debe tener los permisos de administración de mensajes para comenzar los sorteos.**');
+            return message.channel.send('❎ **| Debe tener los permisos de administración de mensajes para comenzar los sorteos.**');
         }
 
 
@@ -18,7 +18,7 @@ const command: Command = {
 
         if (!giveawayChannel)
         {
-            return message.channel.send('❎ **|¡Tienes que mencionar un canal de texto válido!**');
+            return message.channel.send('❎ **| ¡Tienes que mencionar un canal de texto válido!**');
         }
 
         const giveawayDuration = args[1];
@@ -74,7 +74,7 @@ const command: Command = {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         }).catch(() => { });
 
-        message.channel.send(`El sorteo ha sido iniciado en ${giveawayChannel}!`);
+        message.channel.send(`¡El sorteo ha sido iniciado en ${giveawayChannel}!`);
 
     }
 };

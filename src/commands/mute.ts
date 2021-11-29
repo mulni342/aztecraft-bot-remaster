@@ -24,15 +24,15 @@ const command: Command = {
 
         if (usuario.id === message.author.id) return message.channel.send('❎ ** | No puedes silenciarte a ti mismo.**');
 
-        if (usuario.id === client.user?.id) return message.channel.send('❎ ** | No puedes silenciarme.**');
+        if (usuario.id === client.user?.id) return message.channel.send('❎ **| No puedes silenciarme.**');
 
         if (message.guild?.ownerId !== message.author.id && usuario.roles.highest.comparePositionTo(message.member?.roles.highest) >= 0) return message.channel.send('❎ **| No puedes silenciar a este usuario.**');
 
-        if (role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('❎ ** | No puedo dar el rol de silencio.**');
+        if (role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('❎ **| No puedo dar el rol de silencio.**');
 
         if (role && usuario.roles.cache.has(role.id)) return message.channel.send('❎ **| Este usuario ya fue silenciado.**');
 
-        if (razon.length > 1024) return message.channel.send('❎ ** | La razón no puede exceder de los 1024 caracteres.**');
+        if (razon.length > 1024) return message.channel.send('❎ **| La razón no puede exceder de los 1024 caracteres.**');
 
         if (!role)
         {

@@ -47,7 +47,7 @@ const command: Command = {
             .then(m =>
             {
                 m.react('✅');
-                m.react('❌');
+                m.react('❎');
             });
 
 

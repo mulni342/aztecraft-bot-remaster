@@ -9,7 +9,7 @@ const command: Command = {
     {
         if (!message.member?.permissions.has('MANAGE_MESSAGES') && !message.member?.roles.cache.some((r) => r.name === 'Giveaways'))
         {
-            return message.channel.send('❎**| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
+            return message.channel.send('❎ **| ¡No tienes los permisos necesarios para ejecutar esté comando!** ');
         }
 
         if (!args[0])
